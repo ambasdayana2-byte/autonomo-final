@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Reglas - Piedra, Papel o Tijera</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/styles.css') }}"
+    />
+  </head>
+  <body>
+    <main class="contenedor">
+      <section class="tarjeta">
+        <h1>Reglas del juego</h1>
+
+        <p>El juego consiste en elegir una de estas tres opciones:</p>
+
+        <ul class="lista-reglas">
+          <li><strong>Piedra</strong> gana contra tijera.</li>
+          <li><strong>Papel</strong> gana contra piedra.</li>
+          <li><strong>Tijera</strong> gana contra papel.</li>
+        </ul>
+
+        <p>
+          Si el usuario y la computadora eligen la misma opción, el resultado es
+          empate.
+        </p>
+
+        <a class="boton" href="/menu">Volver al menú</a>
+      </section>
+    </main>
+  </body>
+</html>
