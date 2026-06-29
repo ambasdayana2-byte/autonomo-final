@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Login - Piedra, Papel o Tijera</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/styles.css') }}"
+    />
+  </head>
+  <body>
+    <main class="contenedor">
+      <section class="tarjeta">
+        <h1>Piedra, Papel o Tijera</h1>
+        <h2>Inicio de sesión</h2>
+
+        <form method="POST">
+          <label for="usuario">Usuario</label>
+          <input type="text" id="usuario" name="usuario" required />
+
+          <label for="password">Contraseña</label>
+          <input type="password" id="password" name="password" required />
+
+          <button type="submit">Ingresar</button>
+        </form>
+
+        {% if mensaje_error %}
+        <p class="error">{{ mensaje_error }}</p>
+        {% endif %}
+
+        <p class="ayuda">Usuario: admin | Contraseña: 1234</p>
+      </section>
+    </main>
+  </body>
+</html>

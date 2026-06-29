@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Juego - Piedra, Papel o Tijera</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/styles.css') }}"
+    />
+  </head>
+  <body>
+    <main class="contenedor">
+      <section class="tarjeta tarjeta-juego">
+        <h1>Iniciar juego</h1>
+        <p>Elige una opción para jugar contra la computadora.</p>
+
+        <form method="POST" class="opciones-juego">
+          <button type="submit" name="jugada" value="piedra">🪨 Piedra</button>
+          <button type="submit" name="jugada" value="papel">📄 Papel</button>
+          <button type="submit" name="jugada" value="tijera">✂️ Tijera</button>
+        </form>
+
+        {% if resultado %}
+        <div class="resultado">
+          <h2>Resultado</h2>
+
+          <p><strong>Tu elección:</strong> {{ jugada_usuario }}</p>
+          <p>
+            <strong>Elección de la computadora:</strong> {{ jugada_computadora
+            }}
+          </p>
+
+          {% if resultado == "Ganaste" %}
+          <p class="ganaste">{{ resultado }}</p>
+          {% elif resultado == "Perdiste" %}
+          <p class="perdiste">{{ resultado }}</p>
+          {% else %}
+          <p class="empate">{{ resultado }}</p>
+          {% endif %}
+        </div>
+        {% endif %}
+
+        <div class="puntaje">
+          <h2>Puntaje</h2>
+          <p>Usuario: {{ puntaje_usuario }}</p>
+          <p>Computadora: {{ puntaje_computadora }}</p>
+          <p>Empates: {{ empates }}</p>
+        </div>
+
+        <a class="boton" href="/reiniciar">Reiniciar puntaje</a>
+        <a class="boton boton-secundario" href="/menu">Volver al menú</a>
+      </section>
+    </main>
+
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+  </body>
+</html>
